@@ -1,8 +1,10 @@
 import React from "react";
 
+// destructure the people state as the list property
 const List = ({ people }) => {
   return (
     <>
+      {/* iterated over all the people for the state, destructured them and return each value in it's needed placement */}
       {people.map((person) => {
         const { id, name, image, age } = person;
         return (
