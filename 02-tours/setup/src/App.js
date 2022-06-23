@@ -5,21 +5,24 @@ import Tours from "./Tours";
 // I SWITCHED TO PERMANENT DOMAIN
 const url = "https://course-api.com/react-tours-project";
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [tours, setTours] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); //define the use state for loading
+  const [tours, setTours] = useState([]); //define the use state for tours
 
+  // functionality for removing tour from the list
   const removeTour = (id) => {
+    // filter through the tours list
     const newTour = tours.filter((tour) => tour.id !== id);
-    setTours(newTour);
+    setTours(newTour); //set new filtered value for tour
   };
 
+  // functionality fetching data
   const fetchTours = async () => {
-    setIsLoading(true);
+    setIsLoading(true); //set loading state to still true
     try {
       const response = await fetch(url);
       const tours = await response.json();
-      setIsLoading(false);
-      setTours(tours);
+      setIsLoading(false); //set loading state to false (Loading Disappear)
+      setTours(tours); //set tour value to the new fetched data
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -27,9 +30,8 @@ function App() {
   };
 
   useEffect(() => {
-    fetchTours();
+    fetchTours(); //invoking the fetchTour func as a side effect
   }, []);
-
   if (isLoading) {
     return (
       <main>
