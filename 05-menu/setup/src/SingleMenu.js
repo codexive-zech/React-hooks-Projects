@@ -1,5 +1,6 @@
 import React from "react";
 
+// passed in the single menu component props
 function SingleMenu({ img, title, price, desc }) {
   return (
     <article className="menu-item">
