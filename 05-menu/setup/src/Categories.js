@@ -1,5 +1,6 @@
 import React from "react";
 
+// passed in the categories component props
 const Categories = ({ filterByCategory, categories }) => {
   return (
     <div className="btn-container">
