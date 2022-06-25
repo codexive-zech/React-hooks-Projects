@@ -1,7 +1,14 @@
-import React from 'react';
+import React from "react";
+import SingleMenu from "./SingleMenu";
 
-const Menu = () => {
-  return <h2>menu component</h2>;
+const Menu = ({ menu }) => {
+  return (
+    <section className="section-center">
+      {menu.map((menuItem) => {
+        return <SingleMenu key={menuItem.id} {...menuItem} />;
+      })}
+    </section>
+  );
 };
 
 export default Menu;
