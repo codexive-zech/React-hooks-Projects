@@ -4,21 +4,21 @@ import { FaBars } from "react-icons/fa";
 import { useGlobalContext } from "./context";
 
 const Navbar = () => {
-  const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+  const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext(); // brining in the states and functions form custom context api hook
 
   const displaySubmenu = (e) => {
-    const pageText = e.target.textContent;
+    const pageText = e.target.textContent; // getting the value of the text
     const tempBtn = e.target.getBoundingClientRect();
-    const center = (tempBtn.left + tempBtn.right) / 2;
-    const bottom = tempBtn.bottom - 2;
-    openSubmenu(pageText, { center, bottom });
-  };
+    const center = (tempBtn.left + tempBtn.right) / 2; // looking for the center of the hovered button text
+    const bottom = tempBtn.bottom - 2; // looking for the bottom of the hovered button text
+    openSubmenu(pageText, { center, bottom }); // set submenu to the page text gotten and a location coordinate object
+  }; // a function displaying the submenu
 
   const handleCloseSubmenu = (e) => {
     if (!e.target.classList.contains("link-btn")) {
       closeSubmenu();
     }
-  };
+  }; // checking if the class isn't link-btn the close the submenu (close submenu when hovered on the nav)
   return (
     <nav className="nav" onMouseOver={handleCloseSubmenu}>
       <div className="nav-center">
