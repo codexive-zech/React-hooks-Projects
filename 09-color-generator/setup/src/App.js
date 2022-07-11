@@ -6,7 +6,7 @@ import Values from "values.js";
 function App() {
   const [colorValue, setColorValue] = useState(""); // define a state for the color input value
   const [error, setError] = useState(false); // define a state value for the error
-  const [colorList, setColorList] = useState(new Values("#f15025").all(10)); // define a state for the list of colors to be returned
+  const [colorList, setColorList] = useState(new Values("#f15025").all(20)); // define a state for the list of colors to be returned
 
   // a function that handles the form submit
   const handleColorSubmit = (e) => {
