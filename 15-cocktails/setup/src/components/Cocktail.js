@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// destructured value from spread op cocktail array
 const Cocktail = ({ id, name, image, alcoholic, glass }) => {
   return (
     <article className="cocktail">

@@ -3,15 +3,15 @@ import { useGlobalContext } from "../context";
 
 const SearchForm = () => {
   const { setSearchValue } = useGlobalContext();
-  const searchInput = useRef("");
+  const searchInput = useRef(""); // define a use ref
 
   const changeCocktails = () => {
     setSearchValue(searchInput.current.value);
-  };
+  }; // change value of the cocktail form
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
+  }; // handle default submission
 
   useEffect(() => {
     searchInput.current.focus();
