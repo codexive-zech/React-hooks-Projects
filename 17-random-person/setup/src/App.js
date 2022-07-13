@@ -10,20 +10,21 @@ import {
 const url = "https://randomuser.me/api/";
 const defaultImage = "https://randomuser.me/api/portraits/men/75.jpg";
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [person, setPerson] = useState(null);
-  const [title, setTitle] = useState("name");
-  const [value, setValue] = useState("random person");
+  const [loading, setLoading] = useState(true); // define a loading state
+  const [person, setPerson] = useState(null); // define a person object state
+  const [title, setTitle] = useState("name"); // define a title state
+  const [value, setValue] = useState("random person"); // define a value state
 
-  const personImage = person && person.image;
+  const personImage = person && person.image; // getting the person image if true in the person object
 
   const handleValue = (e) => {
+    // checking if the icon class exist
     if (e.target.classList.contains("icon")) {
-      const dataValue = e.target.dataset.label;
-      setTitle(dataValue);
-      setValue(person[dataValue]);
+      const dataValue = e.target.dataset.label; // getting the data set value
+      setTitle(dataValue); // set title state
+      setValue(person[dataValue]); // set value state
     }
-  };
+  }; // func handling dynamic display of title and value state
 
   const getRandomPerson = async () => {
     setLoading(true);
@@ -46,10 +47,10 @@ function App() {
           age,
           password,
           image,
-        };
-        setPerson(newPerson);
-        setTitle("name");
-        setValue(newPerson.name);
+        }; // created a new person object
+        setPerson(newPerson); // set persons object state to new created object
+        setTitle("name"); // set title state
+        setValue(newPerson.name); // set value state to name from created object
       } else {
         setPerson(null);
         setTitle("name");
@@ -64,8 +65,7 @@ function App() {
 
   useEffect(() => {
     getRandomPerson();
-  }, []);
-  // const { name, email, age, street, phone, password } = person;
+  }, []); // re-render only once
   return (
     <main>
       <div className="block bcg-black"></div>
