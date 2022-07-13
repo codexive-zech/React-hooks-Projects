@@ -2,7 +2,7 @@
 
 (Fix)[https://dev.to/dance2die/page-not-found-on-netlify-with-react-router-58mc]
 
-#### CRA Fix
+#### CRA Fix (Netlify Continues Deployement Fix)
 
 ```
 
@@ -10,6 +10,3 @@
 
 ```
 
-```sh
-npm install react-router-dom@6
-```
