@@ -1,12 +1,14 @@
 import React from "react";
 
 const Photo = ({
+  urls: { regular },
   alt_description,
   likes,
-  regular,
-  name,
-  portfolio_url,
-  medium,
+  user: {
+    name,
+    portfolio_url,
+    profile_image: { medium },
+  },
 }) => {
   return (
     <article className="photo">
@@ -14,10 +16,10 @@ const Photo = ({
       <div className="photo-info">
         <div>
           <h4>{name}</h4>
-          <p>{likes} Likes</p>
+          <p>{likes} likes</p>
         </div>
         <a href={portfolio_url}>
-          <img src={medium} alt={name} className="user-img" />
+          <img src={medium} alt="" className="user-img" />
         </a>
       </div>
     </article>
