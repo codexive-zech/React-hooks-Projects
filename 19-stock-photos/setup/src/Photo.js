@@ -1,5 +1,6 @@
 import React from "react";
 
+// destructed needed data from unsplash api
 const Photo = ({
   urls: { regular },
   alt_description,
