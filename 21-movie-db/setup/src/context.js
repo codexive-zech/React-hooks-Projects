@@ -5,9 +5,9 @@ import useFetch from "./useFetch";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [searchQuery, setSearchQuery] = useState("batman");
-  const searchUrl = `&s=${searchQuery}`;
-  const { isLoading, error, data: movieList } = useFetch(searchUrl);
+  const [searchQuery, setSearchQuery] = useState("batman"); //define a search query state
+  const searchUrl = `&s=${searchQuery}`; // search url defined
+  const { isLoading, error, data: movieList } = useFetch(searchUrl); // transfer states from the custom hook and add the url param argument
   return (
     <AppContext.Provider
       value={{ isLoading, movieList, error, searchQuery, setSearchQuery }}
