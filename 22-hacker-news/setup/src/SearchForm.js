@@ -1,8 +1,22 @@
-import React from 'react'
-import { useGlobalContext } from './context'
+import React from "react";
+import { useGlobalContext } from "./context";
 
 const SearchForm = () => {
-  return <h2>search form</h2>
-}
+  const { handleSearch, searchQuery } = useGlobalContext();
+  const handleForm = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <form className="search-form" onSubmit={handleForm}>
+      <h2>Search For Hacker New</h2>
+      <input
+        type="text"
+        className="form-input"
+        value={searchQuery}
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+    </form>
+  );
+};
 
-export default SearchForm
+export default SearchForm;
