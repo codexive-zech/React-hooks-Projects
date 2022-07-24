@@ -6,10 +6,11 @@ const Stories = () => {
   const { isLoading, hits, removeStory } = useGlobalContext();
   if (isLoading) {
     return <div className="loading"></div>;
-  }
+  } // show only when loading is true
 
   return (
     <section className="stories">
+      {/* Iterating over the hits data array */}
       {hits.map((story) => {
         const { objectID, title, url, points, author, num_comments } = story;
         return (
@@ -31,7 +32,7 @@ const Stories = () => {
               </a>
               <button
                 className="remove-btn"
-                onClick={() => removeStory(objectID)}
+                onClick={() => removeStory(objectID)} // invoking the remove story func
               >
                 Remove
               </button>
