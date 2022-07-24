@@ -4,26 +4,26 @@ import {
   REMOVE_STORY,
   HANDLE_PAGE,
   HANDLE_SEARCH,
-} from "./actions";
+} from "./actions"; // dispatch types identifier
 
 const reducer = (state, action) => {
   switch (action.type) {
     case SET_LOADING:
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true }; // set new state values for the initial state object when dispatch type is 'SET_LOADING'
     case SET_STORIES:
       return {
         ...state,
         isLoading: false,
         hits: action.payload.hits,
         nbPages: action.payload.nbPages,
-      };
+      }; // set new state values for the initial state object when dispatch type is 'SET_STORIES'
     case REMOVE_STORY:
       return {
         ...state,
         hits: state.hits.filter((story) => story.objectID !== action.payload),
-      };
+      }; // set new state values for the initial state object when dispatch type is 'REMOVE_STORY'
     case HANDLE_SEARCH:
-      return { ...state, searchQuery: action.payload, page: 0 };
+      return { ...state, searchQuery: action.payload, page: 0 }; // set new state values for the initial state object when dispatch type is 'HANDLE_SEARCH'
     case HANDLE_PAGE:
       if (action.payload === "prev") {
         let prevPage = state.page - 1;
@@ -38,7 +38,7 @@ const reducer = (state, action) => {
           nextPage = 0;
         }
         return { ...state, page: nextPage };
-      }
+      } // set new state values for the initial state object when dispatch type is 'HANDLE_PAGE'
       break;
     default:
       throw new Error(`No Matching ${action.type} action.type`);
